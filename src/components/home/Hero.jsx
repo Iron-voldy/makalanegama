@@ -74,19 +74,19 @@ const Hero = () => {
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
-                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300">
+                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300 interactive">
                   <div className="text-3xl font-bold text-red-400 mb-2">{schoolInfo.details.students}</div>
                   <div className="text-sm text-gray-400">Active Students</div>
                 </div>
-                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300">
+                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300 interactive">
                   <div className="text-3xl font-bold text-red-400 mb-2">1-11</div>
                   <div className="text-sm text-gray-400">Grade Levels</div>
                 </div>
-                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300">
+                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300 interactive">
                   <div className="text-3xl font-bold text-red-400 mb-2">65+</div>
                   <div className="text-sm text-gray-400">Years</div>
                 </div>
-                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300">
+                <div className="bg-red-600/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-red-600/20 transition-all duration-300 interactive">
                   <div className="text-3xl font-bold text-red-400 mb-2">{schoolInfo.details.schoolId}</div>
                   <div className="text-sm text-gray-400">School ID</div>
                 </div>
@@ -96,7 +96,7 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link 
                   to="/about" 
-                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-800 text-white font-semibold rounded-xl hover:from-red-700 hover:to-red-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25"
+                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-800 text-white font-semibold rounded-xl hover:from-red-700 hover:to-red-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25 interactive"
                 >
                   <span>Discover Our School</span>
                   <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ const Hero = () => {
 
                 <Link 
                   to="/contact" 
-                  className="group inline-flex items-center px-8 py-4 bg-transparent border-2 border-red-500 text-white font-semibold rounded-xl hover:bg-red-600 hover:border-red-600 transform hover:scale-105 transition-all duration-300"
+                  className="group inline-flex items-center px-8 py-4 bg-transparent border-2 border-red-500 text-white font-semibold rounded-xl hover:bg-red-600 hover:border-red-600 transform hover:scale-105 transition-all duration-300 interactive"
                 >
                   <span>Contact Us</span>
                   <svg className="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

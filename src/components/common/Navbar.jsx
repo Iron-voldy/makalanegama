@@ -36,7 +36,7 @@ const Navbar = () => {
         : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center group">
+        <Link to="/" className="flex items-center group interactive">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-all duration-300 border border-red-500/30">
             <span className="text-xs">MVY</span>
           </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-red-600/20 transition-colors"
+          className="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-red-600/20 transition-colors interactive"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
         >
@@ -71,7 +71,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 interactive ${
                 location.pathname === link.path
                   ? 'text-white bg-gradient-to-r from-red-600 to-red-800 shadow-lg shadow-red-600/30'
                   : 'text-gray-300 hover:text-white hover:bg-red-600/20'
@@ -95,7 +95,7 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 interactive ${
                     location.pathname === link.path
                       ? 'text-white bg-gradient-to-r from-red-600 to-red-800 shadow-lg'
                       : 'text-gray-300 hover:text-white hover:bg-red-600/20'

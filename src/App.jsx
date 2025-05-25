@@ -8,7 +8,7 @@ const App = () => {
   return (
     <AppProvider>
       <Router>
-        <div className="cursor-none"> {/* Hide default cursor */}
+        <div className="app-container">
           <CustomCursor />
           <AppRoutes />
         </div>
