@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
+import schoolInfo from '../../data/schoolInfo';
 
 const Navbar = () => {
   const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useAppContext();
@@ -29,22 +30,33 @@ const Navbar = () => {
   ];
   
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${
+      scrolled 
+        ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl border-b border-red-600/30 py-2' 
+        : 'bg-transparent py-4'
+    }`}>
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center">
-          <div className="w-12 h-12 rounded-full bg-maroon-700 flex items-center justify-center text-white font-bold text-lg">SCH</div>
-          <span className={`ml-2 font-bold text-xl ${scrolled ? 'text-maroon-700' : 'text-white'}`}>
-            Sri Lanka School
-          </span>
+        <Link to="/" className="flex items-center group">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-all duration-300 border border-red-500/30">
+            <span className="text-xs">MVY</span>
+          </div>
+          <div className="ml-3">
+            <span className="block font-bold text-xl text-white group-hover:text-red-400 transition-colors duration-300">
+              {schoolInfo.shortName}
+            </span>
+            <span className="block text-xs text-gray-400 group-hover:text-red-300 transition-colors duration-300">
+              {schoolInfo.location.district}
+            </span>
+          </div>
         </Link>
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-maroon-700 focus:outline-none"
+          className="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-red-600/20 transition-colors"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke={scrolled ? "currentColor" : "white"} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {mobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -59,14 +71,16 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`
-                ${location.pathname === link.path
-                  ? 'font-bold text-maroon-700 border-b-2 border-maroon-700'
-                  : `${scrolled ? 'text-gray-700' : 'text-white'} hover:text-maroon-600`}
-                transition-colors duration-300
-              `}
+              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                location.pathname === link.path
+                  ? 'text-white bg-gradient-to-r from-red-600 to-red-800 shadow-lg shadow-red-600/30'
+                  : 'text-gray-300 hover:text-white hover:bg-red-600/20'
+              }`}
             >
               {link.name}
+              {location.pathname === link.path && (
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-red-400 rounded-full"></div>
+              )}
             </Link>
           ))}
         </div>
@@ -74,23 +88,23 @@ const Navbar = () => {
       
       {/* Mobile navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4 px-4 absolute top-full left-0 right-0">
-          <div className="flex flex-col space-y-4">
-            {links.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`
-                  block py-2
-                  ${location.pathname === link.path
-                    ? 'font-bold text-maroon-700 border-b-2 border-maroon-700'
-                    : 'text-gray-700 hover:text-maroon-600'}
-                  transition-colors duration-300
-                `}
-              >
-                {link.name}
-              </Link>
-            ))}
+        <div className="md:hidden bg-gray-900/95 backdrop-blur-md border-t border-red-600/30">
+          <div className="container mx-auto py-4">
+            <div className="flex flex-col space-y-2">
+              {links.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    location.pathname === link.path
+                      ? 'text-white bg-gradient-to-r from-red-600 to-red-800 shadow-lg'
+                      : 'text-gray-300 hover:text-white hover:bg-red-600/20'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
